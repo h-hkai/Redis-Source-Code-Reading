@@ -1446,7 +1446,7 @@ unsigned char *ziplistInsert(unsigned char *zl, unsigned char *p, unsigned char 
 unsigned char *ziplistDelete(unsigned char *zl, unsigned char **p) {
 
     // 因为 __ziplistDelete 时会对 zl 进行内存重分配
-    // 而内存充分配可能会改变 zl 的内存地址
+    // 而内存重分配可能会改变 zl 的内存地址
     // 所以这里需要记录到达 *p 的偏移量
     // 这样在删除节点之后就可以通过偏移量来将 *p 还原到正确的位置
     size_t offset = *p-zl;
